@@ -1,0 +1,7 @@
+C:\Users\wolst\Desktop\Develop\GitHub\Project-BlackSmith\Server\Output\GameServer.pdb
+C:\Users\wolst\Desktop\Develop\GitHub\Project-BlackSmith\Server\Output\D3DCompiler_47_cor3.dll
+C:\Users\wolst\Desktop\Develop\GitHub\Project-BlackSmith\Server\Output\PenImc_cor3.dll
+C:\Users\wolst\Desktop\Develop\GitHub\Project-BlackSmith\Server\Output\PresentationNative_cor3.dll
+C:\Users\wolst\Desktop\Develop\GitHub\Project-BlackSmith\Server\Output\vcruntime140_cor3.dll
+C:\Users\wolst\Desktop\Develop\GitHub\Project-BlackSmith\Server\Output\wpfgfx_cor3.dll
+C:\Users\wolst\Desktop\Develop\GitHub\Project-BlackSmith\Server\Output\GameServer.exe

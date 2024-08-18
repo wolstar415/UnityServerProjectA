@@ -1,0 +1,8 @@
+C:\Users\wolst\Desktop\Develop\GitHub\Project-BlackSmith\Server\Output\GameServer.pdb
+C:\Users\wolst\Desktop\Develop\GitHub\Project-BlackSmith\Server\Output\comerr64.dll
+C:\Users\wolst\Desktop\Develop\GitHub\Project-BlackSmith\Server\Output\gssapi64.dll
+C:\Users\wolst\Desktop\Develop\GitHub\Project-BlackSmith\Server\Output\k5sprt64.dll
+C:\Users\wolst\Desktop\Develop\GitHub\Project-BlackSmith\Server\Output\krb5_64.dll
+C:\Users\wolst\Desktop\Develop\GitHub\Project-BlackSmith\Server\Output\krbcc64.dll
+C:\Users\wolst\Desktop\Develop\GitHub\Project-BlackSmith\Server\Output\MathNet.Numerics.xml
+C:\Users\wolst\Desktop\Develop\GitHub\Project-BlackSmith\Server\Output\GameServer.exe

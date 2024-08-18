@@ -611,6 +611,18 @@
           }
         }
       },
+      "Microsoft.NET.ILLink.Analyzers/7.0.100-1.23401.1": {
+        "type": "package",
+        "build": {
+          "build/Microsoft.NET.ILLink.Analyzers.props": {}
+        }
+      },
+      "Microsoft.NET.ILLink.Tasks/7.0.100-1.23401.1": {
+        "type": "package",
+        "build": {
+          "build/Microsoft.NET.ILLink.Tasks.props": {}
+        }
+      },
       "Microsoft.NETCore.Platforms/3.1.0": {
         "type": "package",
         "compile": {
@@ -1763,6 +1775,18 @@
           }
         }
       },
+      "Microsoft.NET.ILLink.Analyzers/7.0.100-1.23401.1": {
+        "type": "package",
+        "build": {
+          "build/Microsoft.NET.ILLink.Analyzers.props": {}
+        }
+      },
+      "Microsoft.NET.ILLink.Tasks/7.0.100-1.23401.1": {
+        "type": "package",
+        "build": {
+          "build/Microsoft.NET.ILLink.Tasks.props": {}
+        }
+      },
       "Microsoft.NETCore.Platforms/3.1.0": {
         "type": "package",
         "compile": {
@@ -2822,6 +2846,53 @@
         "lib/netstandard2.0/Microsoft.Net.Http.Headers.xml",
         "microsoft.net.http.headers.2.2.0.nupkg.sha512",
         "microsoft.net.http.headers.nuspec"
+      ]
+    },
+    "Microsoft.NET.ILLink.Analyzers/7.0.100-1.23401.1": {
+      "sha512": "XirkjOLc5Vc3HsXRc2Z6ZbQv6l0RvWgJa/31w7XqZ914MoSi3H3OCNRMWFw7H2EYfsnKbokFfhCcysAmUcEOgw==",
+      "type": "package",
+      "path": "microsoft.net.illink.analyzers/7.0.100-1.23401.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "analyzers/dotnet/cs/ILLink.CodeFixProvider.dll",
+        "analyzers/dotnet/cs/ILLink.RoslynAnalyzer.dll",
+        "build/Microsoft.NET.ILLink.Analyzers.props",
+        "microsoft.net.illink.analyzers.7.0.100-1.23401.1.nupkg.sha512",
+        "microsoft.net.illink.analyzers.nuspec"
+      ]
+    },
+    "Microsoft.NET.ILLink.Tasks/7.0.100-1.23401.1": {
+      "sha512": "mI6vCdPEhluLtMn/GV0texEWg5oAPQWCCE4LWspM+Bmy75Nd4EQsziQXrdOFqNeSBQMrxDX9C/O5Xi3kpKSMIw==",
+      "type": "package",
+      "path": "microsoft.net.illink.tasks/7.0.100-1.23401.1",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "Sdk/Sdk.props",
+        "build/6.0_suppressions.xml",
+        "build/Microsoft.NET.ILLink.Tasks.props",
+        "build/Microsoft.NET.ILLink.targets",
+        "microsoft.net.illink.tasks.7.0.100-1.23401.1.nupkg.sha512",
+        "microsoft.net.illink.tasks.nuspec",
+        "tools/net472/ILLink.Tasks.dll",
+        "tools/net472/Mono.Cecil.dll",
+        "tools/net472/System.Buffers.dll",
+        "tools/net472/System.Collections.Immutable.dll",
+        "tools/net472/System.Memory.dll",
+        "tools/net472/System.Numerics.Vectors.dll",
+        "tools/net472/System.Reflection.Metadata.dll",
+        "tools/net472/System.Runtime.CompilerServices.Unsafe.dll",
+        "tools/net7.0/ILLink.Tasks.deps.json",
+        "tools/net7.0/ILLink.Tasks.dll",
+        "tools/net7.0/Mono.Cecil.Pdb.dll",
+        "tools/net7.0/Mono.Cecil.dll",
+        "tools/net7.0/illink.deps.json",
+        "tools/net7.0/illink.dll",
+        "tools/net7.0/illink.runtimeconfig.json"
       ]
     },
     "Microsoft.NETCore.Platforms/3.1.0": {
@@ -4414,6 +4485,8 @@
       "Microsoft.AspNetCore.Server.Kestrel >= 2.2.0",
       "Microsoft.AspNetCore.Server.Kestrel.Core >= 2.2.0",
       "Microsoft.AspNetCore.Server.Kestrel.Https >= 2.2.0",
+      "Microsoft.NET.ILLink.Analyzers >= 7.0.100-1.23401.1",
+      "Microsoft.NET.ILLink.Tasks >= 7.0.100-1.23401.1",
       "MySql.Data >= 8.3.0",
       "Newtonsoft.Json >= 13.0.3"
     ]
@@ -4424,11 +4497,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\wolst\\Desktop\\Develop\\GitHub\\Project-BlackSmith\\Server\\GameServer.csproj",
+      "projectUniqueName": "C:\\Users\\wolst\\Desktop\\Develop\\GitHub\\UnityServerProjectA\\Server\\GameServer.csproj",
       "projectName": "GameServer",
-      "projectPath": "C:\\Users\\wolst\\Desktop\\Develop\\GitHub\\Project-BlackSmith\\Server\\GameServer.csproj",
+      "projectPath": "C:\\Users\\wolst\\Desktop\\Develop\\GitHub\\UnityServerProjectA\\Server\\GameServer.csproj",
       "packagesPath": "C:\\Users\\wolst\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\wolst\\Desktop\\Develop\\GitHub\\Project-BlackSmith\\Server\\obj\\publish\\win-x64\\",
+      "outputPath": "C:\\Users\\wolst\\Desktop\\Develop\\GitHub\\UnityServerProjectA\\Server\\obj\\publish\\win-x64\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\wolst\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -4451,6 +4524,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -4468,6 +4546,18 @@
           "Microsoft.AspNetCore.Server.Kestrel.Https": {
             "target": "Package",
             "version": "[2.2.0, )"
+          },
+          "Microsoft.NET.ILLink.Analyzers": {
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "[7.0.100-1.23401.1, )",
+            "autoReferenced": true
+          },
+          "Microsoft.NET.ILLink.Tasks": {
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "[7.0.100-1.23401.1, )",
+            "autoReferenced": true
           },
           "MySql.Data": {
             "target": "Package",
@@ -4497,7 +4587,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300\\RuntimeIdentifierGraph.json"
       }
     },
     "runtimes": {

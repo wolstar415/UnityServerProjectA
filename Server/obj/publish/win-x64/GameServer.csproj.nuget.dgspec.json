@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\wolst\\Desktop\\Develop\\GitHub\\Project-BlackSmith\\Server\\GameServer.csproj": {}
+    "C:\\Users\\wolst\\Desktop\\Develop\\GitHub\\UnityServerProjectA\\Server\\GameServer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\wolst\\Desktop\\Develop\\GitHub\\Project-BlackSmith\\Server\\GameServer.csproj": {
+    "C:\\Users\\wolst\\Desktop\\Develop\\GitHub\\UnityServerProjectA\\Server\\GameServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\wolst\\Desktop\\Develop\\GitHub\\Project-BlackSmith\\Server\\GameServer.csproj",
+        "projectUniqueName": "C:\\Users\\wolst\\Desktop\\Develop\\GitHub\\UnityServerProjectA\\Server\\GameServer.csproj",
         "projectName": "GameServer",
-        "projectPath": "C:\\Users\\wolst\\Desktop\\Develop\\GitHub\\Project-BlackSmith\\Server\\GameServer.csproj",
+        "projectPath": "C:\\Users\\wolst\\Desktop\\Develop\\GitHub\\UnityServerProjectA\\Server\\GameServer.csproj",
         "packagesPath": "C:\\Users\\wolst\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\wolst\\Desktop\\Develop\\GitHub\\Project-BlackSmith\\Server\\obj\\publish\\win-x64\\",
+        "outputPath": "C:\\Users\\wolst\\Desktop\\Develop\\GitHub\\UnityServerProjectA\\Server\\obj\\publish\\win-x64\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\wolst\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -34,6 +34,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -51,6 +56,18 @@
             "Microsoft.AspNetCore.Server.Kestrel.Https": {
               "target": "Package",
               "version": "[2.2.0, )"
+            },
+            "Microsoft.NET.ILLink.Analyzers": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.100-1.23401.1, )",
+              "autoReferenced": true
+            },
+            "Microsoft.NET.ILLink.Tasks": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.100-1.23401.1, )",
+              "autoReferenced": true
             },
             "MySql.Data": {
               "target": "Package",
@@ -80,7 +97,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300\\RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {

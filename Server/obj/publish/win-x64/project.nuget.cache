@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "qxH+0lsh6NbxtkV/+uhFfodwZdxHzc5++at1tqPRAjNcnkKBoXcH6H3qztau0iEPm5RpRqyY/PkBC48UGM43DQ==",
+  "dgSpecHash": "idcPDGstvWg=",
   "success": true,
-  "projectFilePath": "C:\\Users\\wolst\\Desktop\\Develop\\GitHub\\Project-BlackSmith\\Server\\GameServer.csproj",
+  "projectFilePath": "C:\\Users\\wolst\\Desktop\\Develop\\GitHub\\UnityServerProjectA\\Server\\GameServer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\wolst\\.nuget\\packages\\bouncycastle.cryptography\\2.2.1\\bouncycastle.cryptography.2.2.1.nupkg.sha512",
     "C:\\Users\\wolst\\.nuget\\packages\\google.protobuf\\3.25.1\\google.protobuf.3.25.1.nupkg.sha512",
@@ -40,6 +40,8 @@
     "C:\\Users\\wolst\\.nuget\\packages\\microsoft.extensions.options\\2.2.0\\microsoft.extensions.options.2.2.0.nupkg.sha512",
     "C:\\Users\\wolst\\.nuget\\packages\\microsoft.extensions.primitives\\2.2.0\\microsoft.extensions.primitives.2.2.0.nupkg.sha512",
     "C:\\Users\\wolst\\.nuget\\packages\\microsoft.net.http.headers\\2.2.0\\microsoft.net.http.headers.2.2.0.nupkg.sha512",
+    "C:\\Users\\wolst\\.nuget\\packages\\microsoft.net.illink.analyzers\\7.0.100-1.23401.1\\microsoft.net.illink.analyzers.7.0.100-1.23401.1.nupkg.sha512",
+    "C:\\Users\\wolst\\.nuget\\packages\\microsoft.net.illink.tasks\\7.0.100-1.23401.1\\microsoft.net.illink.tasks.7.0.100-1.23401.1.nupkg.sha512",
     "C:\\Users\\wolst\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\wolst\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\wolst\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",

@@ -1,6 +1,4 @@
-﻿using MySqlX.XDevAPI;
-using Org.BouncyCastle.Bcpg;
-using System.Net;
+﻿using System.Net;
 using System.Net.Sockets;
 using System.Text;
 
@@ -16,35 +14,44 @@ namespace GameServer.Scripts
         //private Dictionary<string, Room> rooms = new Dictionary<string, Room>();
         private Dictionary<IPEndPoint, TcpClient> clientMap = new Dictionary<IPEndPoint, TcpClient>();
         private const int IntSize = sizeof(int);
+        public string ipAddress;
+        public int port;
 
         public static void Init(string ipAddress, int port)
         {
             Instance = new TcpServer();
             Instance.server = new TcpListener(IPAddress.Parse(ipAddress), port);
-            Instance.server.Start();
-            Instance.isRunning = true;
+            Instance.isRunning = false;
+            Instance.ipAddress = ipAddress;
+            Instance.port = port;
+            Instance.Start();
 
-            Thread serverThread = new Thread(Instance.ServerLoop);
-            serverThread.Start();
 
-            Form.Inst.AddLog("Server started on " + ipAddress + ":" + port);
         }
 
         private void ServerLoop()
         {
-            while (isRunning)
+            try
             {
-                TcpClient client = server.AcceptTcpClient();
-                IPEndPoint? clientEndPoint = client.Client.RemoteEndPoint as IPEndPoint;
-                if (clientEndPoint != null)
+                while (isRunning)
                 {
-                    clientMap.Add(clientEndPoint, client);
-                    Form.Inst.AddLog("Client connected: " + clientEndPoint);
+                    TcpClient client = server.AcceptTcpClient();
+                    IPEndPoint? clientEndPoint = client.Client.RemoteEndPoint as IPEndPoint;
+                    if (clientEndPoint != null)
+                    {
+                        clientMap.Add(clientEndPoint, client);
+                        Form.Inst.AddLog("Client connected: " + clientEndPoint);
 
+                    }
+                    Thread clientThread = new Thread(() => HandleClientAsync(client).Wait());
+                    clientThread.Start();
                 }
-                Thread clientThread = new Thread(() => HandleClientAsync(client).Wait());
-                clientThread.Start();
             }
+            catch (Exception)
+            {
+
+            }
+            
         }
 
         private async Task HandleClientAsync(TcpClient client)
@@ -215,11 +222,25 @@ namespace GameServer.Scripts
         //    return parts.Length > 1 ? parts[0] : "DefaultRoom";
         //}
 
+        public void Start()
+        {
+            if (isRunning)
+                return;
+            isRunning = true;
+            
+            if (server != null) server.Start();
+            Form.Inst.AddLog("Server started on " + ipAddress + ":" + port);
+            Thread serverThread = new Thread(ServerLoop);
+            serverThread.Start();
+        }
+
         public void Stop()
         {
+            if (isRunning==false)
+                return;
             isRunning = false;
             if (server != null) server.Stop();
-            Console.WriteLine("Server stopped.");
+            Form.Inst.AddLog("Server stopped.");
         }
     }
 

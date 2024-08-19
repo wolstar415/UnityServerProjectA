@@ -133,7 +133,7 @@ public partial class Form : System.Windows.Forms.Form
 
     private void button1_Click(object sender, EventArgs e)
     {
-        Server.Start();
+        Server.ReStart();
     }
 
     private void richTextBox1_TextChanged(object sender, EventArgs e)

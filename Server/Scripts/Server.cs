@@ -42,6 +42,17 @@ class Server
         }
     }
 
+    public static async Task ReStart()
+    {
+        try
+        {
+            TcpServer.Instance.Start();
+        }
+        catch (Exception ex)
+        {
+        }
+    }
+
     public static void SetStatus(ServerStatus s)
     {
         mStatus = s;

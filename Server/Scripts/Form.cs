@@ -145,6 +145,11 @@ public partial class Form : System.Windows.Forms.Form
     {
 
     }
+
+    private void button2_Click(object sender, EventArgs e)
+    {
+        Server.Stop();
+    }
 }
 
 public static class StringExtensions

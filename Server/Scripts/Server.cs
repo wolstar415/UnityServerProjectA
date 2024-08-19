@@ -46,5 +46,10 @@ class Server
     {
         mStatus = s;
     }
+
+    public static void Stop()
+    {
+        TcpServer.Instance.Stop();
+    }
 }
 

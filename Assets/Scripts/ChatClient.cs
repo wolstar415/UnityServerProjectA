@@ -2,6 +2,7 @@ using System;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
+using TMPro;
 using UnityEditor.Sprites;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,18 +15,23 @@ public class UnityTcpClient : MonoBehaviour
     private bool isConnected = false;
 
     public Button button1;
-    public Button button2;
-    public Button button3;
+    public TMP_InputField inputField;
 
     void Start()
     {
         // 서버에 연결
         ConnectToServer("127.0.0.1", 8888);
 
-        button1.onClick.AddListener(() =>
+        button1.onClick.AddListener(OnButton);
+    }
+
+    private void OnButton()
+    {
+        if(inputField.text.Length>0)
         {
-            SendDataToServer("dd");
-        });
+            SendDataToServer(inputField.text);
+            inputField.text = "";
+        }
     }
 
     public void ConnectToServer(string ipAddress, int port)

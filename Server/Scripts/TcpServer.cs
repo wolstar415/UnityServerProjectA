@@ -10,7 +10,7 @@ namespace GameServer.Scripts
 
     public class TcpServer
     {
-        private static TcpServer? Instance;
+        public static TcpServer? Instance;
         private TcpListener? server;
         private bool isRunning;
         //private Dictionary<string, Room> rooms = new Dictionary<string, Room>();

@@ -6,7 +6,8 @@ using TMPro;
 using UnityEditor.Sprites;
 using UnityEngine;
 using UnityEngine.UI;
-
+using Newtonsoft.Json;
+using ParrelSync;
 public class UnityTcpClient : MonoBehaviour
 {
     private TcpClient client;
@@ -15,21 +16,47 @@ public class UnityTcpClient : MonoBehaviour
     private bool isConnected = false;
 
     public Button button1;
+    public Button button2;
+    public Button button3;
     public TMP_InputField inputField;
 
+    public string MyNickName;
+
+    private string NickName;
+    private string roomName;
     void Start()
     {
+
+        NickName = MyNickName;
+
+        if(ClonesManager.IsClone())
+        {
+            NickName += ClonesManager.GetArgument();
+        }
         // 서버에 연결
         ConnectToServer("127.0.0.1", 8888);
 
         button1.onClick.AddListener(OnButton);
-    }
 
+        button2.onClick.AddListener(() =>
+        {
+            Packet dataPacket = new Packet { Type = PacketType.JoinRoom, Data = $"1" };
+            SendDataToServer(dataPacket);
+        });
+
+        button3.onClick.AddListener(() =>
+        {
+            Packet dataPacket = new Packet { Type = PacketType.JoinRoom, Data = $"2" };
+            SendDataToServer(dataPacket);
+        });
+    }
     private void OnButton()
     {
         if(inputField.text.Length>0)
         {
-            SendDataToServer(inputField.text);
+            Packet dataPacket = new Packet { Type = PacketType.Text, Data = $"{roomName}:{inputField.text}" };
+            SendDataToServer(dataPacket);
+            //SendDataToServer(inputField.text);
             inputField.text = "";
         }
     }
@@ -55,6 +82,9 @@ public class UnityTcpClient : MonoBehaviour
             receiveThread.Start();
 
             Debug.Log("Connected to server.");
+
+            Packet dataPacket = new Packet { Type = PacketType.Login, Data = $"{MyNickName}" };
+            SendDataToServer(dataPacket);
         }
         catch (Exception ex)
         {
@@ -87,9 +117,9 @@ public class UnityTcpClient : MonoBehaviour
                 }
 
                 // 3. 데이터 처리
-                string message = Encoding.UTF8.GetString(dataBuffer);
-                //Packet packet = PacketSerializer.Deserialize(json);
-                HandlePacket(message);
+                string json = Encoding.UTF8.GetString(dataBuffer);
+                Packet packet = PacketSerializer.Deserialize(json);
+                HandlePacket(packet);
             }
         }
         catch (Exception ex)
@@ -99,49 +129,52 @@ public class UnityTcpClient : MonoBehaviour
         }
     }
 
-    private void HandlePacket(string message)
+    private void HandlePacket(Packet packet)
     {
-        Debug.Log("Received text: " + message);
+        //Debug.Log("Received text: " + packet.Data);
 
-        //// 패킷 타입에 따른 처리
-        //switch (packet.Type)
-        //{
-        //    case PacketType.Text:
-        //        Debug.Log("Received text: " + packet.Data);
-        //        break;
-        //    case PacketType.Login:
-        //        Debug.Log("Login response: " + packet.Data);
-        //        break;
-        //    case PacketType.JoinRoom:
-        //        Debug.Log("Join room response: " + packet.Data);
-        //        break;
-        //    case PacketType.LeaveRoom:
-        //        Debug.Log("Leave room response: " + packet.Data);
-        //        break;
-        //    default:
-        //        Debug.LogWarning("Unknown packet type: " + packet.Type);
-        //        break;
-        //}
+        // 패킷 타입에 따른 처리
+        switch (packet.Type)
+        {
+            case PacketType.Text:
+                Debug.Log("Received text: " + packet.Data);
+                break;
+            case PacketType.Login:
+                Debug.Log("Login response: " + packet.Data);
+                break;
+            case PacketType.JoinRoom:
+                roomName = packet.Data;
+
+                Debug.Log("Join room response: " + packet.Data);
+                break;
+            case PacketType.LeaveRoom:
+                Debug.Log("Leave room response: " + packet.Data);
+                break;
+            default:
+                Debug.LogWarning("Unknown packet type: " + packet.Type);
+                break;
+        }
     }
 
-    public void SendDataToServer(string message)
+    public void SendDataToServer(Packet packet)
     {
         if (client == null || !client.Connected)
             return;
-
         try
         {
-            // 패킷을 JSON으로 직렬화
-            //string json = PacketSerializer.Serialize(packet);
-            byte[] data = Encoding.UTF8.GetBytes(message);
 
-            // 데이터 길이 계산 및 전송 (4 바이트)
-            byte[] dataLength = BitConverter.GetBytes(data.Length);
+
+        // 패킷을 JSON으로 직렬화
+        string json = PacketSerializer.Serialize(packet);
+        byte[] data = Encoding.UTF8.GetBytes(json);
+
+        // 데이터 길이 계산 및 전송 (4 바이트)
+        byte[] dataLength = BitConverter.GetBytes(data.Length);
             stream.Write(dataLength, 0, dataLength.Length);
 
             // 실제 데이터 전송
             stream.Write(data, 0, data.Length);
-            Debug.Log("Packet sent to server: " + message);
+            Debug.Log("Packet sent to server: " + data.Length);
         }
         catch (Exception ex)
         {
@@ -164,5 +197,31 @@ public class UnityTcpClient : MonoBehaviour
         if (stream != null) stream.Close();
         if (client != null) client.Close();
         Debug.Log("Connection closed.");
+    }
+
+    public enum PacketType
+    {
+        Login,
+        JoinRoom,
+        LeaveRoom,
+        Text
+    }
+    public class Packet
+    {
+        public PacketType Type { get; set; }
+        public string Data { get; set; }
+    }
+
+    public static class PacketSerializer
+    {
+        public static string Serialize(Packet packet)
+        {
+            return JsonConvert.SerializeObject(packet);
+        }
+
+        public static Packet Deserialize(string json)
+        {
+            return JsonConvert.DeserializeObject<Packet>(json);
+        }
     }
 }
